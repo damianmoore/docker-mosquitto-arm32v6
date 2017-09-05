@@ -1,6 +1,12 @@
-#Eclipse Mosquitto v1.4.12 Docker Image
+# Eclipse Mosquitto v1.4.12 Docker Image
 
-##Mount Points
+Based off https://hub.docker.com/r/library/eclipse-mosquitto/tags/ using Alpine Linux arm32v6 base image and compiled on a Raspberry Pi Zero.
+
+## Quick Start
+
+    docker run -d -p 1883:1883 -p 9001:9001 --name=mosquitto --restart=always damianmoore/mosquitto-arm32v6
+
+## Mount Points
 
 Three mount points have been created in the image to be used for configuration, persistent storage and logs.
 ```
@@ -10,7 +16,7 @@ Three mount points have been created in the image to be used for configuration, 
 ```
 
 
-##Configuration
+## Configuration
 
 When running the image, the default configuration values are used.
 To use a custom configuration file, mount a **local** configuration file to `/mosquitto/config/mosquitto.conf`
@@ -33,13 +39,13 @@ log_dest file /mosquitto/log/mosquitto.log
 
 **Note**: If a volume is used, the data will persist between containers.
 
-##Build
+## Build
 Build the image:
 ```
 docker build -t eclipse-mosquitto:1.4.12 .
 ```
 
-##Run
+## Run
 Run a container using the new image:
 ```
 docker run -it -p 1883:1883 -p 9001:9001 -v <path-to-configuration-file>:/mosquitto/config/mosquitto.conf -v /mosquitto/data -v /mosquitto/log eclipse-mosquitto:1.4.12
@@ -47,4 +53,3 @@ docker run -it -p 1883:1883 -p 9001:9001 -v <path-to-configuration-file>:/mosqui
 :boom: if the mosquitto configuration (mosquitto.conf) was modified
 to use non-default ports, the docker run command will need to be updated
 to expose the ports that have been configured.
-
