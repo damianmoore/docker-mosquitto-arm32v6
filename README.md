@@ -1,6 +1,6 @@
 # Eclipse Mosquitto v1.4.12 Docker Image
 
-Based off https://hub.docker.com/r/library/eclipse-mosquitto/tags/ using Alpine Linux arm32v6 base image and compiled on a Raspberry Pi Zero.
+Based off https://hub.docker.com/r/_/eclipse-mosquitto/ using Alpine Linux arm32v6 base image and compiled on a Raspberry Pi Zero.
 
 ## Quick Start
 
